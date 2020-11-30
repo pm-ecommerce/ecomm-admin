@@ -1,0 +1,55 @@
+<header class="navbar navbar-inverse navbar-fixed-top">
+  <ul class="nav navbar-nav-custom">
+    <li>
+      <a href="javascript:void(0)" (click)="app.sidebar('toggle-sidebar')">
+        <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+        <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+      </a>
+    </li>
+    <li class="hidden-xs animation-fadeInQuick">
+      <a [routerLink]="['']"><strong>Welcome</strong><i> {{ username }}</i></a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav-custom pull-right">
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+        <img src="/assets/img/avatar.png" alt="avatar"/>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li class="dropdown-header">
+          <strong>ADMINISTRATOR</strong>
+        </li>
+        <li>
+          <a (click)="changePasswordForm()">
+            <i class="fa fa-pencil-square fa-fw pull-right"></i>
+            Profile
+          </a>
+        </li>
+        <li class="divider">
+        <li>
+        <li>
+          <a (click)="logout()">
+            <i class="fa fa-power-off fa-fw pull-right"></i>
+            Log out
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</header>
+
+<ng-template #form let-c="close">
+  <div class="modal-header">
+    <h2 class="modal-title"> Change password</h2>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-admin-profile [profile]="profile"></app-admin-profile>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+    <button type="button" class="btn btn-danger" (click)="close()">Close</button>
+  </div>
+</ng-template>

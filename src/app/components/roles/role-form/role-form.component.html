@@ -1,0 +1,26 @@
+<form method="post" action="" class="form-horizontal" enctype="multipart/form-data">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label class="col-sm-12 control-label" for="name">Name</label>
+        <div class="col-sm-12">
+          <input type="text" id="name" name="name" class="form-control" placeholder="Enter name"
+            [(ngModel)]="role.name">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label class="col-sm-12 control-label" for="permissions">Permissions</label>
+        <div class="col-sm-12">
+          <kendo-multiselect id="permissions" name="permissions" [data]="permissions" textField="path" valueField="id"
+            [(ngModel)]="role.permissions">
+            <ng-template kendoMultiSelectItemTemplate let-dataItem>
+              <span class="template">{{ dataItem.action }} - {{ dataItem.path }}</span>
+            </ng-template>
+          </kendo-multiselect>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

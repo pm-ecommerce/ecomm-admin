@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="block full">
+            <div class="block-title">
+                <h2>{{this.pageType==='guests'? 'Guests' : 'Customers' }} List({{(customers.data || []).length}})</h2>
+            </div>
+
+            <div class="table-responsive">
+                <kendo-grid [data]="customers.data || []" [skip]="gridView.skip" [pageSize]="gridView.pageSize"
+                    [sortable]="gridView.sortable" [sort]="sort" [height]="gridView.height"
+                    (sortChange)="sortChange($event)" [filterable]="true">
+
+                    <kendo-grid-column field="id" title="ID" [width]="120" [filterable]="false">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                            <div class="customer-name">{{ dataItem.id }}</div>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column field="name" title="Name" [width]="220" [filterable]="false">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                            <div class="customer-name">{{ dataItem.name }}</div>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column field="email" title="Email" [width]="220" [filterable]="false">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                            <div class="customer-name">{{ dataItem.email }}</div>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column field="createdDate" title="Created Date" [width]="220" [filterable]="false">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                            <div class="customer-name">{{ dataItem.createdDate|date:'MM/dd/yyyy' }}</div>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-command-column title="Command" [width]="100" [class]="{'text-center': true}"
+                        [resizable]="false">
+                        <ng-template kendoGridHeaderTemplate let-dataItem>
+                            <i class="fa fa-bolt"></i>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem>
+
+                            <a tooltip="Delete" placement="top" class="btn btn-effect-ripple btn-xs btn-red"
+                                (click)="delete(dataItem.id)">
+                                Delete
+                            </a>
+                        </ng-template>
+                    </kendo-grid-command-column>
+
+                </kendo-grid>
+                <pagination [totalItems]="customers.totalPages * customers.itemsPerPage" align="center" [itemsPerPage]="customers.itemsPerPage"
+                    [maxSize]="10" (pageChanged)="loadCustomers($event.page)">
+                </pagination>
+            </div>
+        </div>
+    </div>
+</div>

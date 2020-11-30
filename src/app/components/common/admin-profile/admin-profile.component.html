@@ -1,0 +1,23 @@
+<form method="post" action="" class="form-horizontal" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-sm-12 control-label" for="password">Password</label>
+                <div class="col-sm-12">
+                    <input type="password" id="password" name="password" class="form-control"
+                        placeholder="Enter password" [(ngModel)]="profile.password">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-sm-12 control-label" for="passwordconf">Password</label>
+                <div class="col-sm-12">
+                    <input type="password" id="passwordconf" name="passwordConfirmation" class="form-control"
+                        placeholder="Confirm password" [(ngModel)]="profile.passwordConfirmation">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>

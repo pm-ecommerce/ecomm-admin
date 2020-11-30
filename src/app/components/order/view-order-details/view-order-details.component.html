@@ -1,0 +1,51 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>Status</th>
+    <th>Address</th>
+    <th>Total</th>
+    <th>Delivery Date</th>
+    <th>Delivered Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{ order.status }}</td>
+    <td class="text-left">
+      {{ order.address.receiver }} <br/>
+      {{ order.address.address1 }}, {{ order.address.address2 }} <br/>
+      {{ order.address.city }}, {{ order.address.zipcode }} <br/>
+      {{ order.address.state }}, {{ order.address.country }}
+    </td>
+    <td>${{ getOrderTotal()|number:'2.2-2' }}</td>
+    <td>{{ order.deliveryDate|date:'MM/dd/yyyy' }}</td>
+    <td>{{ order.deliveredDate|date:'MM/dd/yyyy' }}</td>
+  </tr>
+  <tr>
+    <td colSpan="5">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Rate</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of order.items">
+          <td>
+            <img [src]='item.image|imageUrl' class="cart-item-img" style="width: 80px;"/>
+          </td>
+          <td>{{ item.name }}</td>
+          <td>${{ item.rate|number:'2.2-2' }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>${{ (item.rate * item.quantity)|number:'2.2-2' }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>

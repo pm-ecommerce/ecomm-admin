@@ -1,0 +1,54 @@
+<form method="post" action="" class="form-horizontal" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-sm-12 control-label" for="name">Name</label>
+                <div class="col-sm-12">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter name"
+                        [(ngModel)]="employee.name">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-sm-12 control-label" for="email">Email</label>
+                <div class="col-sm-12">
+                    <input type="text" id="email" name="email" class="form-control" placeholder="Enter email"
+                        [(ngModel)]="employee.email">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-sm-12 control-label" for="role">Role</label>
+                <div class="col-sm-12">
+                    <select [compareWith]="byId" class="form-control" id="role" name="role" [(ngModel)]="employee.role">
+                        <option value="">-Select a role-</option>
+                        <option *ngFor="let r of roles" [ngValue]="r">
+                          {{r.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12" *ngIf="!employee.id || employee.id == 0">
+            <div class="form-group">
+                <label class="col-sm-12 control-label" for="password">Password</label>
+                <div class="col-sm-12">
+                    <input type="password" id="password" name="password" class="form-control"
+                        placeholder="Enter password" [(ngModel)]="employee.password">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" *ngIf="!employee.id || employee.id == 0">
+            <div class="form-group">
+                <label class="col-sm-12 control-label" for="passwordConfirmation">Confirm Password</label>
+                <div class="col-sm-12">
+                    <input type="password" id="passwordConfirmation" name="passwordConfirmation" class="form-control"
+                        placeholder="Repeat password" [(ngModel)]="employee.passwordConfirmation">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

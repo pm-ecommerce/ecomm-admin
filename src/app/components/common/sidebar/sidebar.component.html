@@ -1,0 +1,154 @@
+<div id="sidebar">
+  <div id="sidebar-brand" class="themed-background">
+    <a routerLink="" class="sidebar-title">
+      <img src="/assets/img/logo.png" />
+    </a>
+  </div>
+  <div id="sidebar-scroll">
+    <div class="sidebar-content">
+      <ul class="sidebar-nav">
+        <li>
+          <a [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"
+            class="parent-menu-item">
+            <i class="gi gi-compass sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" class="sidebar-nav-menu">
+            <i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+            <i class="fa fa-users sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide">Vendors</span>
+          </a>
+          <ul>
+            <li>
+              <a [routerLink]="['/vendors']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">Vendor list</a>
+            </li>
+            <li>
+              <a [routerLink]="['/vendors/pending-approval']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">Pending approval</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0);" class="sidebar-nav-menu">
+            <i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+            <i class="fa fa-gears sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide">Products</span>
+          </a>
+          <ul>
+            <li>
+              <a [routerLink]="['/products']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">Active products</a>
+            </li>
+            <li>
+              <a [routerLink]="['/products/categories']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">Categories</a>
+            </li>
+            <li>
+              <a [routerLink]="['/products/pending-approval']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">Pending approval</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0);" class="sidebar-nav-menu">
+            <i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+            <i class="fa fa-users sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide">Employees</span>
+          </a>
+          <ul>
+            <li>
+              <a [routerLink]="['/employees']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <i class="fa fa-th sidebar-nav-icon"></i> List
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/employees/roles']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <i class="fa fa-th sidebar-nav-icon"></i> Roles
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/employees/permissions']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <i class="fa fa-th sidebar-nav-icon"></i> Permissions
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0);" class="sidebar-nav-menu">
+            <i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+            <i class="fa fa-users sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide">Customers</span>
+          </a>
+          <ul>
+            <li>
+              <a [routerLink]="['/customers/users']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">Registered</a>
+            </li>
+            <li>
+              <a [routerLink]="['/customers/guests', 'guests']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">Guests</a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="javascript:void(0);" class="sidebar-nav-menu">
+            <i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+            <i class="fa fa-users sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide">Orders</span>
+          </a>
+          <ul>
+            <li>
+              <a [routerLink]="['/orders', 'active']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">Active</a>
+            </li>
+            <li>
+              <a [routerLink]="['/orders', 'completed']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">Completed</a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="javascript:void(0);" class="sidebar-nav-menu">
+            <i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+            <i class="fa fa-bar-chart sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide">Reports</span>
+          </a>
+          <ul>
+            <li>
+              <a [routerLink]="['/reports/vendors']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <i class="fa fa-th sidebar-nav-icon"></i> Vendor report
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/reports/sales']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <i class="fa fa-th sidebar-nav-icon"></i> Sales report
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/reports/categories']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <i class="fa fa-th sidebar-nav-icon"></i> Category report
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/reports/products']" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <i class="fa fa-th sidebar-nav-icon"></i> Product report
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

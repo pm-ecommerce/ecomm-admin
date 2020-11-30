@@ -1,0 +1,23 @@
+<div id="page-wrapper" [ngClass]="{'page-loading':loading}">
+  <div class="preloader" *ngIf="loading">
+    <div class="inner">
+      <div class="preloader-spinner themed-background-primary hidden-lt-ie10"></div>
+      <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
+    </div>
+  </div>
+
+  <div id="page-login" *ngIf="!isLogged">
+    <app-login></app-login>
+  </div>
+
+  <div *ngIf="isLogged" id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+    <app-sidebar [title]="title"></app-sidebar>
+    <div id="main-container">
+      <app-header></app-header>
+      <div id="page-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+</div>

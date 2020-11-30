@@ -1,0 +1,151 @@
+<div class="block full">
+  <div class="block-title">
+    <h2>{{type}} Report</h2>
+    <button type="button" (click)="download();" class="btn btn-primary pull-right">Download Full Report</button>
+  </div>
+
+  <hr/>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <kendo-chart>
+        <kendo-chart-area background="#eee">
+        </kendo-chart-area>
+        <kendo-chart-title text="Total count in recent days"></kendo-chart-title>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="dLabels">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="line" [data]="dCountValues"></kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+    <div class="col-lg-6">
+      <kendo-chart>
+        <kendo-chart-area background="#eee">
+        </kendo-chart-area>
+        <kendo-chart-title text="Total amount in recent days"></kendo-chart-title>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="dLabels">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="area" [data]="dSumValues"></kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <kendo-chart>
+        <kendo-chart-area background="#eee">
+        </kendo-chart-area>
+        <kendo-chart-title text="Total count in recent weeks"></kendo-chart-title>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="wLabels">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="line" [data]="wCountValues"></kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+    <div class="col-lg-6">
+      <kendo-chart>
+        <kendo-chart-area background="#eee">
+        </kendo-chart-area>
+        <kendo-chart-title text="Total amount in recent weeks"></kendo-chart-title>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="wLabels">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="area" [data]="wSumValues"></kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+  </div>
+
+
+  <hr/>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <kendo-chart>
+        <kendo-chart-area background="#eee">
+        </kendo-chart-area>
+        <kendo-chart-title text="Total count recent months"></kendo-chart-title>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="mLabels">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="line" [data]="mCountValues"></kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+    <div class="col-lg-6">
+      <kendo-chart>
+        <kendo-chart-area background="#eee">
+        </kendo-chart-area>
+        <kendo-chart-title text="Total amount in recent months"></kendo-chart-title>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="mLabels">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="area" [data]="mSumValues"></kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+  </div>
+
+
+  <hr/>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <kendo-chart>
+        <kendo-chart-area background="#eee">
+        </kendo-chart-area>
+        <kendo-chart-title text="Total count in recent years"></kendo-chart-title>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="yLabels">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="line" [data]="yCountValues"></kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+    <div class="col-lg-6">
+      <kendo-chart>
+        <kendo-chart-area background="#eee">
+        </kendo-chart-area>
+        <kendo-chart-title text="Total amount in recent years"></kendo-chart-title>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="yLabels">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="area" [data]="ySumValues"></kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="block full">
+      <div class="block-title">
+        <h2>Employee List ({{(gridData.data || []).length}})</h2>
+        <button type="button" class="btn btn-primary pull-right" (click)="employeeForm()">Add new employee
+        </button>
+      </div>
+
+      <div class="table-responsive">
+        <kendo-grid [data]="gridData.data || []" [skip]="gridView.skip" [pageSize]="gridView.pageSize"
+                    [sortable]="gridView.sortable" [sort]="sort" [height]="gridView.height"
+                    (sortChange)="sortChange($event)" [filterable]="false">
+
+          <kendo-grid-column field="name" title="Name" [filterable]="false">
+            <ng-template kendoGridCellTemplate let-dataItem>
+              <div class="customer-name">{{ dataItem.name }}</div>
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column field="role" title="Role" [filterable]="false">
+            <ng-template kendoGridCellTemplate let-dataItem>
+              <div class="customer-name">{{ dataItem.role ? dataItem.role.name : '-' }}</div>
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column field="email" title="Email" [class]="{'text-center': true}" [resizable]="false"
+                             [filterable]="false">
+            <ng-template kendoGridCellTemplate let-dataItem>
+              {{ dataItem.email }}
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-command-column title="Command" [class]="{'text-center': true}" [resizable]="false">
+            <ng-template kendoGridHeaderTemplate let-dataItem>
+              <i class="fa fa-bolt"></i>
+            </ng-template>
+            <ng-template kendoGridCellTemplate let-dataItem>
+              <a tooltip="Edit employee" placement="top" class="btn btn-effect-ripple btn-xs btn-primary"
+                 (click)="employeeForm(dataItem)">
+                Edit
+              </a>
+              <a tooltip="Delete employee" placement="top" class="btn btn-effect-ripple btn-xs btn-danger"
+                 (click)="delete(dataItem)">
+                Delete
+              </a>
+            </ng-template>
+          </kendo-grid-command-column>
+
+        </kendo-grid>
+        <pagination [totalItems]="gridData.totalPages * gridData.itemsPerPage" align="center" [itemsPerPage]="gridData.itemsPerPage"
+                    [maxSize]="10" (pageChanged)="loadEmployee($event.page)">
+        </pagination>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #form let-c="close">
+  <div class="modal-header">
+    <h2 class="modal-title" *ngIf="!employee.id"> Add new employee</h2>
+    <h2 class="modal-title" *ngIf="employee.id"> Edit employee</h2>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-employee-form [employee]="employee"></app-employee-form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+    <button type="button" class="btn btn-danger" (click)="close()">Close</button>
+  </div>
+</ng-template>

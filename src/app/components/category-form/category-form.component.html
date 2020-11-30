@@ -1,0 +1,48 @@
+<form method="post" action="" class="form-horizontal" enctype="multipart/form-data">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="col-sm-12 control-label" for="category">Parent category</label>
+        <div class="col-sm-12">
+          <select [compareWith]="byId" class="form-control" id="category" name="category"
+                  [(ngModel)]="category.parent">
+            <option value="">-No parent-</option>
+            <option *ngFor="let cat of categories" [ngValue]="cat">{{cat.name}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="col-sm-12 control-label" for="name">Name</label>
+        <div class="col-sm-12">
+          <input type="text" id="name" name="name" class="form-control"
+                 placeholder="Enter name"
+                 [(ngModel)]="category.name">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-3">
+      <div class="form-group">
+        <label class="control-label col-sm-12">Image</label>
+        <div class="col-sm-8">
+          <aws-upload folder="ecomm/categories" [multiple]="false"
+                      (onupload)="categoryImage($event)"></aws-upload>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="category.image && category.image.name">
+      <div class="col-xs-6 col-sm-3">
+        <div class="form-group">
+          <img src="{{category.image.name|imageUrl}}" style="margin-top: 10px;max-height: 115px;max-width: 145px;"/>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+</form>

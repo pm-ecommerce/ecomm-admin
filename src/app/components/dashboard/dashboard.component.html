@@ -1,0 +1,241 @@
+<div class="row">
+  <div class="col-sm-6 col-lg-3">
+    <a href="javascript:void(0)" class="widget">
+      <div class="widget-content widget-content-mini text-right clearfix">
+        <div class="widget-icon pull-left themed-background-primary">
+          <i class="gi gi-cart_in text-light-op"></i>
+        </div>
+        <h2 class="widget-heading h3 k-text-error">
+          <strong>$ <span data-toggle="counter" data-to="0">{{summary.costTotal|number:'2.2-2'}}</span></strong>
+        </h2>
+        <span class="text-muted">SALES</span>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <a href="javascript:void(0)" class="widget">
+      <div class="widget-content widget-content-mini text-right clearfix">
+        <div class="widget-icon pull-left themed-background-danger">
+          <i class="gi gi-user text-light-op"></i>
+        </div>
+        <h2 class="widget-heading h3 text-success">
+          <strong><span data-toggle="counter" data-to="0">{{summary.vendorTotal}}</span></strong>
+        </h2>
+        <span class="text-muted">VENDORS</span>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <a href="javascript:void(0)" class="widget">
+      <div class="widget-content widget-content-mini text-right clearfix">
+        <div class="widget-icon pull-left themed-background-warning">
+          <i class="gi gi-user text-light-op"></i>
+        </div>
+        <h2 class="widget-heading h3 text-dark">
+          <strong><span data-toggle="counter" data-to="0">{{summary.userTotal}}</span></strong>
+        </h2>
+        <span class="text-muted">USERS</span>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <a href="javascript:void(0)" class="widget">
+      <div class="widget-content widget-content-mini text-right clearfix">
+        <div class="widget-icon pull-left themed-background-success">
+          <i class="gi gi-user text-light-op"></i>
+        </div>
+        <h2 class="widget-heading h3 text-danger">
+          <strong><span data-toggle="counter" data-to="0">{{summary.employeeTotal}}</span></strong>
+        </h2>
+        <span class="text-muted">EMPLOYEES</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-lg-3">
+    <a href="javascript:void(0)" class="widget">
+      <div class="widget-content widget-content-mini text-right clearfix">
+        <div class="widget-icon pull-left themed-background-classy">
+          <i class="gi gi-car text-light-op"></i>
+        </div>
+        <h2 class="widget-heading h3 text-success">
+          <strong><span data-toggle="counter" data-to="0">$ {{(summary.costTotal * .2)|number:'2.2-2'}}</span></strong>
+        </h2>
+        <span class="text-muted">COMMISSIONS</span>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <a href="javascript:void(0)" class="widget">
+      <div class="widget-content widget-content-mini text-right clearfix">
+        <div class="widget-icon pull-left themed-background">
+          <i class="gi gi-cardio text-light-op"></i>
+        </div>
+        <h2 class="widget-heading h3">
+          <strong><span data-toggle="counter" data-to="0">{{summary.transactionTotal}}</span></strong>
+        </h2>
+        <span class="text-muted">TRANSACTIONS</span>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <a href="javascript:void(0)" class="widget">
+      <div class="widget-content widget-content-mini text-right clearfix">
+        <div class="widget-icon pull-left themed-background-info">
+          <i class="gi gi-gift text-light-op"></i>
+        </div>
+        <h2 class="widget-heading h3 text-pink">
+          <strong><span data-toggle="counter" data-to="0">{{summary.productTotal}}</span></strong>
+        </h2>
+        <span class="text-muted">PRODUCTS</span>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <a href="javascript:void(0)" class="widget">
+      <div class="widget-content widget-content-mini text-right clearfix">
+        <div class="widget-icon pull-left themed-background-amethyst">
+          <i class="gi gi-barcode text-light-op"></i>
+        </div>
+        <h2 class="widget-heading h3 text-danger">
+          <strong><span data-toggle="counter" data-to="0">{{summary.categoryTotal}}</span></strong>
+        </h2>
+        <span class="text-muted">CATEGORIES</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="block full">
+  <div class="block-title text-light themed-background">
+    <h2>Sales in this month</h2>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <kendo-chart>
+        <kendo-chart-area background="#eee">
+        </kendo-chart-area>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="dLabels">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="line" [data]="dCountValues"></kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+      <div class="text-center">Total Count: {{dTotalCount}}</div>
+    </div>
+    <div class="col-lg-4">
+      <kendo-chart>
+        <kendo-chart-area background="#eee">
+        </kendo-chart-area>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="dLabels">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="area" [data]="dSumValues"></kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+      <div class="text-center">Total Amount: $ {{dTotalSum}}</div>
+    </div>
+    <div class="col-lg-4">
+
+      <br/>
+      <div class="row">
+        <div class="col-xs-6">
+          <a href="javascript:void(0)" class="widget">
+            <div class="widget-content themed-background-danger text-light-op text-center">
+              <div class="widget-icon">
+                <i class="fa fa-asterisk"></i>
+              </div>
+            </div>
+            <div class="widget-content text-dark text-center">
+              <strong>{{mOrderTotal}}</strong><br>Total of Orders
+            </div>
+          </a>
+        </div>
+        <div class="col-xs-6">
+          <a href="javascript:void(0)" class="widget">
+            <div class="widget-content themed-background-warning text-light-op text-center">
+              <div class="widget-icon">
+                <i class="fa fa-angellist"></i>
+              </div>
+            </div>
+            <div class="widget-content text-dark text-center">
+              <strong>{{mNewOrderTotal}}</strong><br>
+              Active Orders
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6">
+          <a href="javascript:void(0)" class="widget">
+            <div class="widget-content themed-background-info text-light-op text-center">
+              <div class="widget-icon">
+                <i class="fa fa-exchange"></i>
+              </div>
+            </div>
+            <div class="widget-content text-dark text-center">
+              <strong>{{mInProgressOrderTotal}}</strong><br>In-progress Orders
+            </div>
+          </a>
+        </div>
+        <div class="col-xs-6">
+          <a href="javascript:void(0)" class="widget">
+            <div class="widget-content themed-background-success text-light-op text-center">
+              <div class="widget-icon">
+                <i class="fa fa-database"></i>
+              </div>
+            </div>
+            <div class="widget-content text-dark text-center">
+              <strong>{{mCompletedOrderTotal}}</strong><br>
+              Completed Orders
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <kendo-chart>
+        <kendo-chart-area background="#eee">
+        </kendo-chart-area>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="wLabels">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="line" [data]="wCountValues"></kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+
+    <div class="col-lg-6">
+      <kendo-chart>
+        <kendo-chart-area background="#eee">
+        </kendo-chart-area>
+        <kendo-chart-legend position="bottom" orientation="vertical"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="wLabels">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="area" [data]="wSumValues"></kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+  </div>
+
+
